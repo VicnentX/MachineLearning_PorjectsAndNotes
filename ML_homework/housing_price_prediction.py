@@ -1,6 +1,10 @@
 import tensorflow as tf
 import numpy as np
 from sklearn.datasets import fetch_california_housing
+import os
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 housing = fetch_california_housing()
 
 m, n = housing.data.shape
@@ -23,5 +27,6 @@ with tf.Session() as sess:
     w_value = w.eval()
     y_value = y.eval()
     MSE_value = MSE.eval()
+
 
 

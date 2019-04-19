@@ -19,6 +19,10 @@ dataframe = pd.read_excel(file_name)
 print(dataframe)
 print(type(dataframe))
 
-matrix = dataframe * dataframe
-print(matrix)
-print(type(matrix))
+dataframe2 = dataframe * dataframe
+print(dataframe2)
+print(type(dataframe2))
+
+new_matrix = dataframe2.values
+print(new_matrix)
+print(type(new_matrix))
