@@ -8,5 +8,8 @@ print(df)
 print("_____________")
 print(df.values)
 print("_____________")
-dfT = df.transpose
+dfT = df.transpose()
+print(dfT)
+print(type(dfT))
+
 

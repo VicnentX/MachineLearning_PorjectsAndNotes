@@ -18,7 +18,7 @@ w = tf.matmul(tf.matmul(tf.matrix_inverse(tf.matmul(XT, X)), XT), t)
 
 # predicted price
 y = tf.matmul(X, w)
-MSE = tf.div(tf.matmul(tf.transpose(y - t), y - t), m)
+MSE = tf.math.divide(tf.matmul(tf.transpose(y - t), y - t), m)
 
 with tf.Session() as sess:
     X_value = X.eval()
@@ -27,6 +27,11 @@ with tf.Session() as sess:
     w_value = w.eval()
     y_value = y.eval()
     MSE_value = MSE.eval()
+    print(X_value, t_value)
+    print(type(X_value), type(t_value))
+    print(type(t))
+    print(type(X))
+    print(type(w))
 
 
 
