@@ -1,0 +1,114 @@
+python 对矩阵进行复制操作 np.repeat 与 np.tile区别
+
+二者区别
+二者执行的是均是复制操作；
+np.repeat：复制的是多维数组的每一个元素；axis来控制复制的行和列
+np.tile：复制的是多维数组本身；
+import numpy as np
+通过help 查看基本的参数
+help(np.repeat)
+help(np.tile)
+
+案例对比
+np.repeat
+x = np.arange(1, 5).reshape(2, 2)
+print(x)
+[[1 2]
+ [3 4]]
+print(np.repeat(x, 2))
+[1 1 2 2 3 3 4 4]
+1
+2
+3
+4
+5
+6
+对数组中的每一个元素进行复制
+除了待重复的数组之外，只有一个额外的参数时，高维数组也会 flatten 至一维
+
+c = np.array([1,2,3,4])
+print(np.tile(c,(4,2)))
+[[1 2 3 4 1 2 3 4]
+ [1 2 3 4 1 2 3 4]
+ [1 2 3 4 1 2 3 4]
+ [1 2 3 4 1 2 3 4]]
+1
+2
+3
+4
+5
+6
+当然将高维 flatten 至一维，并非经常使用的操作，也即更经常地我们在某一轴上进行复制，比如在行的方向上（axis=1），在列的方向上（axis=0）：
+
+print(np.repeat(x, 3, axis=1))
+[[1 1 1 2 2 2]
+ [3 3 3 4 4 4]]
+print(np.repeat(x, 3, axis=0))
+[[1 2]
+ [1 2]
+ [1 2]
+ [3 4]
+ [3 4]
+ [3 4]]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+当然更为灵活地也可以在某一轴的方向上（axis=0/1），对不同的行/列复制不同的次数：
+
+print(np.repeat(x, (2, 1), axis=0))
+[[1 2]
+ [1 2]
+ [3 4]]
+print(np.repeat(x, (2, 1), axis=1))
+[[1 1 2]
+ [3 3 4]]
+1
+2
+3
+4
+5
+6
+7
+np.tile
+python numpy 下的 np.tile有些类似于 matlab 中的 repmat函数。不需要 axis 关键字参数，仅通过第二个参数便可指定在各个轴上的复制倍数。
+
+a = np.arange(3)
+print(a)
+[0 1 2]
+print(np.tile(a, 2))
+[0 1 2 0 1 2]
+print(np.tile(a, (2, 2)))
+[[0 1 2 0 1 2]
+ [0 1 2 0 1 2]]
+1
+2
+3
+4
+5
+6
+7
+8
+第二个参数便可指定在各个轴上的复制倍数。
+
+b = np.arange(1, 5).reshape(2, 2)
+print(b)
+[[1 2]
+ [3 4]]
+print(np.tile(b, 2))
+[[1 2 1 2]
+ [3 4 3 4]]
+print(np.tile(b, (1, 2)))
+[[1 2 1 2]
+ [3 4 3 4]]
+---------------------
+作者：IT界的小小小学生
+来源：CSDN
+原文：https://blog.csdn.net/HHTNAN/article/details/79711046
+版权声明：本文为博主原创文章，转载请附上博文链接！
