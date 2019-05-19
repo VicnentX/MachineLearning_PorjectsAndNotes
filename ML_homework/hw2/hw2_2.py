@@ -25,7 +25,7 @@ index_test = 0
 for lis in dirs:
     cnt += 1
     print(lis)
-    if cnt == 1:
+    if lis == ".DS_Store":
         continue  # skip .DS.store file
 
     for img in os.listdir(path + r"/" + lis):
@@ -135,3 +135,6 @@ plt.ylabel("yield: accuracy rate")
 plt.title("yield vs k")
 plt.legend(["accuracy rate curve"])
 plt.show()
+
+
+

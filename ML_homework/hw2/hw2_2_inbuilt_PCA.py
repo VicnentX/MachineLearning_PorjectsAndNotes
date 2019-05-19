@@ -1,3 +1,6 @@
+"""
+https://jakevdp.github.io/PythonDataScienceHandbook/05.09-principal-component-analysis.html
+"""
 import imageio
 import Image
 import os
@@ -28,7 +31,7 @@ index_test = 0
 for lis in dirs:
     cnt += 1
     print(lis)
-    if cnt == 1:
+    if lis == ".DS_Store":
         continue  # skip .DS.store file
 
     for img in os.listdir(path + r"/" + lis):
