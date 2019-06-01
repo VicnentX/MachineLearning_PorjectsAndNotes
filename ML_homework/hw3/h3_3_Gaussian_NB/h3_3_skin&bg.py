@@ -97,6 +97,9 @@ print("train_img.shape : ", train_img.shape)
 print("train_image is like : ")
 print(train_img)
 x_train = np.reshape(train_img, (-1, 3))
+print("----------------------")
+print(x_train)
+print("----------------------")
 print("x_train.shape : ", x_train.shape)
 
 # read train ground truth
