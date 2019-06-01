@@ -1,0 +1,57 @@
+最初我遇到的的问题：
+    我在装conda的时候 我的shell是bash 后面我改成了zch
+    所以
+    我的第一步是把默认的shell 改回bash 方法如下：
+        ------
+        Change a User Default Login Shell in Mac OS X
+        Change the user login default shell to
+            zsh: chsh -s /bin/zsh.
+            ksh: chsh -s /bin/ksh.
+            tcsh: chsh -s /bin/tcsh.
+            bash (default): chsh -s /bin/bash.
+            sh: chsh -s /bin/sh.
+            other shells: Simply adjust the path for chsh to set, like so: chsh -s /path/to/alternate/shell/like/fish.
+
+        ----------
+        之后的话我可以先检查我的shell里面有没有conda
+        如下：
+        (base) Chunqius-MacBook-Pro:~ Vincent_Xia$ conda env list
+        ----
+        说明 ： 我输入 conda env list
+        输出 ：
+        TutorialYoutube          /Users/Vincent_Xia/.conda/envs/TutorialYoutube
+        leetcode                 /Users/Vincent_Xia/.conda/envs/leetcode
+        base                  *  /anaconda3
+
+        所以：
+        我发现我有两个环境：
+
+        这时候：
+        (base) Chunqius-MacBook-Pro:~ Vincent_Xia$ source activate leetcode
+
+        这时候 我就显示如下：
+        (leetcode) Chunqius-MacBook-Pro:~ Vincent_Xia$
+
+        说明： 我已经在leetcode环境下面了 这个时候tensorboard 命令我就有了 就能做后面的事情了
+
+        总体显示一下
+        ----------------
+        (base) Chunqius-MacBook-Pro:~ Vincent_Xia$ conda env list
+        # conda environments:
+        #
+        TutorialYoutube          /Users/Vincent_Xia/.conda/envs/TutorialYoutube
+        leetcode                 /Users/Vincent_Xia/.conda/envs/leetcode
+        base                  *  /anaconda3
+
+        (base) Chunqius-MacBook-Pro:~ Vincent_Xia$ source activate leetcode
+        (leetcode) Chunqius-MacBook-Pro:~ Vincent_Xia$ tensorboard --logdir="/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/"
+        TensorBoard 1.13.1 at http://Chunqius-MacBook-Pro.local:6006 (Press CTRL+C to quit)
+
+        -------
+
+        这时候： 在浏览器 输入 http://127.0.0.1:6006/
+
+        就能看了
+
+        TensorBoard 1.13.1 at http://Chunqius-MacBook-Pro.local:6006 (Press CTRL+C to quit)
+
