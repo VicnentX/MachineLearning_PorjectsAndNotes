@@ -1,7 +1,12 @@
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import os
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+
+
+FLAGS = tf.app.flags.FLAGS
+
+tf.app.flags.DEFINE_integer("is_train", 1, "指定程序是去做预测 还是 训练")
 
 
 def full_connected():
@@ -40,6 +45,10 @@ def full_connected():
     # 之前的任务做完了 现在初始化op
     init_op = tf.global_variables_initializer()
 
+    """
+    这里要创建一个ssaver去保存训练完之后的model
+    """
+    saver = tf.train.Saver()
 
     # 开启会话
     with tf.Session() as sess:
@@ -47,15 +56,33 @@ def full_connected():
         # 初始化变量
         sess.run(init_op)
 
-        # 迭代步数去训练， 更新参数
-        for i in range(2048):
 
-            # 我先用batch 每次都得到500个训练数据给模型训练 每个batch的数据小的话 数据不一定稳定的 因为样本差别可能很大
-            mnist_x, mnist_y = mnist.train.next_batch(500)
+        if FLAGS.is_train == 1:
+            # 迭代步数去训练， 更新参数
+            for i in range(2048):
 
-            # 训练train_op
-            sess.run(train_op, feed_dict={x: mnist_x, y_true: mnist_y})
-            print(f"训练到第{i}步 之后 准确率 = {sess.run(accuracy, feed_dict={x: mnist_x, y_true: mnist_y})}")
+                # 我先用batch 每次都得到500个训练数据给模型训练 每个batch的数据小的话 数据不一定稳定的 因为样本差别可能很大
+                mnist_x, mnist_y = mnist.train.next_batch(500)
+
+                # 训练train_op
+                sess.run(train_op, feed_dict={x: mnist_x, y_true: mnist_y})
+                print(f"训练到第{i}步 之后 准确率 = {sess.run(accuracy, feed_dict={x: mnist_x, y_true: mnist_y})}")
+
+            """
+            保存之前训练完之后的模型，model的名字需要写
+            """
+            saver.save(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
+        else:
+            """
+            加载之前save的模型
+            """
+            saver.restore(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
+            for i in range(100):
+                # 每次测试一张图片
+                x_test, y_test = mnist.test.next_batch(1)
+                print(f"第{i}张图片，手写的数字目标是{tf.argmax(y_test, 1).eval()}, 我的预测是{tf.argmax(sess.run(y_hat, feed_dict={x: x_test, y_true: y_test}), 1).eval()}")
+
+
 
     return None
 

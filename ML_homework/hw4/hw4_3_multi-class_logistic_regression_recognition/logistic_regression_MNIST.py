@@ -31,6 +31,9 @@ accuracy = logistic_regression_model.score(X_test, y_test)
 print("accuracy ： ", accuracy)
 
 # show confuse matrix
+print("-------------------")
+print(f"y_test shape is {y_test.shape}")
+print("-------------------")
 cm = confusion_matrix(y_test, y_test_hat)
 print(cm)
 plt.figure(figsize=(9, 9))
