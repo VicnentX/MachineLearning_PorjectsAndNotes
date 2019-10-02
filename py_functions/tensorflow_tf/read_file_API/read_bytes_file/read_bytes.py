@@ -8,7 +8,7 @@ import os
 
 # 定义cifar的数据等命令行参数
 FLAGS = tf.app.flags.FLAGS
-tf.app.flags.DEFINE_string("cifar_dir", "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/read_file_API/read_bytes_file/cifar-10-batches-bin/", "文件的目录")
+tf.app.flags.DEFINE_string("cifar_dir", "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/read_file_API/read_bytes_file/cifar-10-batches-bin/", "文件的目录")
 
 
 

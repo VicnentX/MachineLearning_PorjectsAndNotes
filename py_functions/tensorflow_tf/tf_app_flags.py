@@ -11,7 +11,7 @@ import numpy as np
 """
 # 三个参数参数：名字，默认值，说明
 tf.app.flags.DEFINE_integer("max_step", 1000, "训练模型步数")
-tf.app.flags.DEFINE_string("model_dir", "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/checkpoint/model_for_w&b", "模型加载路径")
+tf.app.flags.DEFINE_string("model_dir", "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/checkpoint/model_for_w&b", "模型加载路径")
 # 定义获取命令行参数名字
 FLAGS = tf.app.flags.FLAGS
 
@@ -73,14 +73,14 @@ def myregression():
 
 
         # 建立事件文件
-        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/", graph=sess.graph)
+        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/", graph=sess.graph)
 
 
         """
         这边当我重新训练 我就从之前saver的时候开始训练：
         所以我要加载模型，覆盖模型当中随机定义的参数，从上次训练的参数结果开始
         """
-        if os.path.exists("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/checkpoint/checkpoint"):
+        if os.path.exists("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/checkpoint/checkpoint"):
             saver.restore(sess, FLAGS.model_dir)
 
 

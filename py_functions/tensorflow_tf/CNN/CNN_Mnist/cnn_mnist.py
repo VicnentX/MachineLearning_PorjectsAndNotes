@@ -68,7 +68,7 @@ def model_DIY():
 def conv_fc():
     # 获取正式数据：
     mnist = input_data.read_data_sets(
-        "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
+        "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
     # 定义模型 得到输出
     x, y_true, y_hat = model_DIY()
 

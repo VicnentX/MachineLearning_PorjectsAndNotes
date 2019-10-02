@@ -49,7 +49,7 @@ def picread(filelist):
 
 
 if __name__ == "__main__":
-    path = "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/read_file_API/read_img_file/dog_pics/"
+    path = "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/read_file_API/read_img_file/dog_pics/"
     # 找到文件， 放入列表    路径+名字-》放入列表
     file_name = os.listdir(path)
     # print(file_name)

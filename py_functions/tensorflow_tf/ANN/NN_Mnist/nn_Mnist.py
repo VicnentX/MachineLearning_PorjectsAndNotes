@@ -3,7 +3,7 @@ import tensorflow as tf
 
 
 
-mnist = input_data.read_data_sets("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
+mnist = input_data.read_data_sets("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
 print(mnist.train.images)
 print(mnist.train.images.shape)
 print(mnist.train.labels)

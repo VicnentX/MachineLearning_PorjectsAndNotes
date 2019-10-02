@@ -61,15 +61,15 @@ def myregression():
 
 
         # 建立事件文件
-        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/", graph=sess.graph)
+        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/", graph=sess.graph)
 
 
         """
         这边当我重新训练 我就从之前saver的时候开始训练：
         所以我要加载模型，覆盖模型当中随机定义的参数，从上次训练的参数结果开始
         """
-        if os.path.exists("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/checkpoint/checkpoint"):
-            saver.restore(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/checkpoint/model_for_w&b")
+        if os.path.exists("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/checkpoint/checkpoint"):
+            saver.restore(sess, "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/checkpoint/model_for_w&b")
 
 
         # 这里开始循环优化：
@@ -87,7 +87,7 @@ def myregression():
             # 打印优化后的的w b
             print(f"第 {i + 1} 优化后的w : {weight.eval()} , b : {bias.eval()}")
 
-        saver.save(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/checkpoint/model_for_w&b")
+        saver.save(sess, "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/checkpoint/model_for_w&b")
         # 这次我的数据文件 model_for_w&b.data-00000-of-00001
 
     return None

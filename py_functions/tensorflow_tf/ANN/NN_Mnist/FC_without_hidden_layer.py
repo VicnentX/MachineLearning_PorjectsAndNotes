@@ -12,7 +12,7 @@ tf.app.flags.DEFINE_integer("is_train", 1, "指定程序是去做预测 还是 �
 def full_connected():
 
     # 获取正式数据：
-    mnist = input_data.read_data_sets("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
+    mnist = input_data.read_data_sets("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/ANN/NN_Mnist", one_hot=True)
 
     # 1。 建立数据占位符 x [None, 784] y_true [None, 10]
     with tf.variable_scope("data"):
@@ -71,12 +71,12 @@ def full_connected():
             """
             保存之前训练完之后的模型，model的名字需要写
             """
-            saver.save(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
+            saver.save(sess, "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
         else:
             """
             加载之前save的模型
             """
-            saver.restore(sess, "/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
+            saver.restore(sess, "/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/ANN/NN_Mnist/skpt/fc_model")
             for i in range(100):
                 # 每次测试一张图片
                 x_test, y_test = mnist.test.next_batch(1)

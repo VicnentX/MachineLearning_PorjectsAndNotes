@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 def dist(a, b, ax=1):
     return np.linalg.norm(a - b, axis=ax)
 
-# img = Image.open("/Users/Vincent_Xia/PycharmProjects/leetcode/ML_homework/hw2/att_faces_10/s1/1.pgm")
+# img = Image.open("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/ML_homework/hw2/att_faces_10/s1/1.pgm")
 # img.show()
 # print(img.size)
 # print(type(img))

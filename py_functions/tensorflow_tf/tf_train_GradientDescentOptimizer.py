@@ -54,7 +54,7 @@ def myregression():
 
 
         # 建立事件文件
-        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/", graph=sess.graph)
+        writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/", graph=sess.graph)
 
         # 这里开始循环优化：
         for i in range(1000):

@@ -17,4 +17,4 @@ with tf.Session() as sess:
     # 把程序的图结构写入记事本， graph：把指定的图写入文档中
     # 当张量在sess里面没使用 不会显示在tensorboard里面
     # name 可以让相同op名字的东西进行区分
-    writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/leetcode/py_functions/tensorflow_tf/", graph=sess.graph)
+    writer = tf.summary.FileWriter("/Users/Vincent_Xia/PycharmProjects/MachineLearningProjects&Notes/py_functions/tensorflow_tf/", graph=sess.graph)
